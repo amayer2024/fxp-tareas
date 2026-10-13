@@ -18,7 +18,7 @@ export const en: Messages = {
     title: "Tasks",
     hint: "Sign in with your name and the password you were given.",
     username: "Username",
-    usernamePlaceholder: "David",
+    usernamePlaceholder: "your name",
     password: "Password",
     submit: "Sign in",
     submitting: "Signing in…",

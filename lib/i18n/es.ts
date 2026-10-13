@@ -16,7 +16,7 @@ export const es = {
     title: "Tareas",
     hint: "Entrá con tu nombre y la contraseña que te asignaron.",
     username: "Usuario",
-    usernamePlaceholder: "David",
+    usernamePlaceholder: "tu nombre",
     password: "Contraseña",
     submit: "Entrar",
     submitting: "Entrando…",
