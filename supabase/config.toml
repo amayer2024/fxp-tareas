@@ -1,0 +1,65 @@
+project_id = "fxp-tareas"
+
+# Ports are shifted +10 from the Supabase defaults so this stack can run at the
+# same time as Buena Vida's, which holds 54321-54327.
+
+[api]
+enabled = true
+port = 54331
+schemas = ["public", "storage", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54332
+major_version = 15
+
+[db.pooler]
+enabled = false
+port = 54339
+pool_mode = "transaction"
+default_pool_size = 20
+max_client_conn = 100
+
+[db.migrations]
+schema_paths = []
+
+[db.seed]
+sql_paths = ["./seed.sql"]
+
+[realtime]
+enabled = false
+
+[studio]
+enabled = true
+port = 54333
+api_url = "http://127.0.0.1"
+
+[analytics]
+enabled = false
+port = 54337
+
+[inbucket]
+enabled = true
+port = 54334
+
+[storage]
+enabled = true
+file_size_limit = "25MiB"
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/auth/callback"]
+jwt_expiry = 3600
+# Accounts are provisioned by scripts/provision-people.mjs. There is no public
+# sign-up: this is an internal tool for a known set of people.
+enable_signup = false
+enable_anonymous_sign_ins = false
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = false
+otp_length = 6
+otp_expiry = 3600
