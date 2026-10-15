@@ -3,7 +3,7 @@
 
 begin;
 
-select plan(48);
+select plan(49);
 
 create or replace procedure public.test_login(uid uuid)
 language plpgsql
@@ -203,14 +203,26 @@ select lives_ok(
 call public.test_login('a0000000-0000-0000-0000-000000000005');
 
 -- 0003 is created by the test admin and assigned to Mariam, seeded at medium.
--- Alex is an Operaciones member but neither creator nor assignee.
+-- Alex is an Operaciones member but neither creator nor assignee. Write now
+-- follows read: membership of the space is enough.
 update public.tasks set priority = 'urgent'
 where id = 'c0000000-0000-0000-0000-000000000003';
 select is(
   (select priority from public.tasks
    where id = 'c0000000-0000-0000-0000-000000000003'),
-  'medium'::public.task_priority,
-  'Alex cannot edit an Operaciones task he neither created nor is assigned to'
+  'urgent'::public.task_priority,
+  'Alex can edit an Operaciones task he is a member of, even if not assigned'
+);
+
+call public.test_login('a0000000-0000-0000-0000-000000000006');
+update public.tasks set priority = 'low'
+where id = 'c0000000-0000-0000-0000-000000000003';
+call public.test_login('a0000000-0000-0000-0000-000000000005');
+select is(
+  (select priority from public.tasks
+   where id = 'c0000000-0000-0000-0000-000000000003'),
+  'urgent'::public.task_priority,
+  'Helen cannot edit an Operaciones task because she is not a member'
 );
 
 update public.tasks set priority = 'high'

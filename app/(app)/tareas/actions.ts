@@ -91,8 +91,13 @@ export async function updateTaskAction(formData: FormData): Promise<Result> {
 
   if (Object.keys(patch).length > 0) {
     // completed_at is maintained by a trigger, so it is never set from here.
-    const { error } = await supabase.from("tasks").update(patch).eq("id", id);
+    // Prefer: return=minimal plus RLS looks like success with 0 rows, so count.
+    const { error, count } = await supabase
+      .from("tasks")
+      .update(patch, { count: "exact" })
+      .eq("id", id);
     if (error) return { ok: false, detail: translate(error.message, t) };
+    if (!count) return { ok: false, detail: t.errors.cannotSave };
   }
 
   if (assignee_ids) {
