@@ -13,6 +13,7 @@ export const en: Messages = {
     admin: "Admin",
     staff: "Team",
     notifications: "Notifications",
+    asistencia: "Attendance",
   },
   auth: {
     title: "Tasks",
@@ -165,5 +166,30 @@ export const en: Messages = {
     commentRequired: "Enter a comment",
     badUuid: "invalid uuid",
     badDate: "invalid date",
+  },
+  asistencia: {
+    title: "Attendance",
+    actualizado: "Updated {fecha}",
+    sinCargas: "No data has been received yet",
+    datoViejo:
+      "This data is {dias} days old. The Apps Script in Drive has most likely stopped running.",
+    vacio: "No data for this filter",
+
+    sede: "Site",
+    todasLasSedes: "All sites",
+    anio: "Year",
+    todosLosAnios: "All years",
+    denominador: "Denominator",
+    justIncluidas: "Justified counted as absence",
+    justExcluidas: "Justified excluded",
+
+    tasa: "Attendance rate",
+    presentes: "Present",
+    justificadas: "Justified",
+    injustificadas: "Unjustified",
+    tendencia: "Trend by age group",
+    porMes: "By month",
+    notaDenominador:
+      "The rate is calculated over sessions that actually took place. Yellow in the spreadsheets counts as a justified absence.",
   },
 };

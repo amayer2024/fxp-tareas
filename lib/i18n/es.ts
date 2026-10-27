@@ -11,6 +11,7 @@ export const es = {
     admin: "Administración",
     staff: "Equipo",
     notifications: "Notificaciones",
+    asistencia: "Asistencia",
   },
   auth: {
     title: "Tareas",
@@ -163,6 +164,31 @@ export const es = {
     commentRequired: "Escribe un comentario",
     badUuid: "uuid inválido",
     badDate: "fecha inválida",
+  },
+  asistencia: {
+    title: "Asistencia",
+    actualizado: "Actualizado el {fecha}",
+    sinCargas: "Todavía no se recibió ninguna carga",
+    datoViejo:
+      "El dato tiene {dias} días. Es probable que el Apps Script en Drive haya dejado de correr.",
+    vacio: "No hay datos para este filtro",
+
+    sede: "Sede",
+    todasLasSedes: "Todas las sedes",
+    anio: "Año",
+    todosLosAnios: "Todos los años",
+    denominador: "Denominador",
+    justIncluidas: "Justificadas cuentan como ausencia",
+    justExcluidas: "Justificadas fuera del cálculo",
+
+    tasa: "Tasa de asistencia",
+    presentes: "Presentes",
+    justificadas: "Justificadas",
+    injustificadas: "Injustificadas",
+    tendencia: "Tendencia por grupo etario",
+    porMes: "Por mes",
+    notaDenominador:
+      "La tasa se calcula sobre sesiones que efectivamente se realizaron. El amarillo en las planillas cuenta como ausencia justificada.",
   },
 };
 

@@ -2,6 +2,7 @@
 
 import {
   CalendarCheck,
+  ClipboardCheck,
   ListChecks,
   Lock,
   LogOut,
@@ -46,6 +47,7 @@ export function AppShell({
   const items: NavItem[] = [
     { href: "/hoy", label: t.nav.hoy, icon: CalendarCheck },
     { href: "/tareas", label: t.nav.tareas, icon: ListChecks },
+    { href: "/asistencia", label: t.nav.asistencia, icon: ClipboardCheck },
     ...spaces.map((space) => ({
       href: `/espacios/${space.slug}`,
       label: space.name,

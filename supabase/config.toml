@@ -57,6 +57,10 @@ jwt_expiry = 3600
 enable_signup = false
 enable_anonymous_sign_ins = false
 
+[functions.asistencia-ingest]
+enabled = true
+verify_jwt = false
+
 [auth.email]
 enable_signup = true
 double_confirm_changes = true

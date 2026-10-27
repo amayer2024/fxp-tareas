@@ -34,6 +34,87 @@ export type Database = {
   }
   public: {
     Tables: {
+      asistencia_agregados: {
+        Row: {
+          actualizado_en: string
+          anio: number
+          ausente_injustificada: number
+          ausente_justificada: number
+          fechas: string | null
+          filas: number
+          filas_sesion_realizada: number
+          generado: string
+          grupo_etario: string
+          mes: string
+          mes_num: number
+          presente: number
+          sede: string
+          semana: string
+          sin_registro: number
+          tasa_asistencia: number | null
+        }
+        Insert: {
+          actualizado_en?: string
+          anio: number
+          ausente_injustificada?: number
+          ausente_justificada?: number
+          fechas?: string | null
+          filas?: number
+          filas_sesion_realizada?: number
+          generado: string
+          grupo_etario: string
+          mes: string
+          mes_num: number
+          presente?: number
+          sede: string
+          semana: string
+          sin_registro?: number
+          tasa_asistencia?: number | null
+        }
+        Update: {
+          actualizado_en?: string
+          anio?: number
+          ausente_injustificada?: number
+          ausente_justificada?: number
+          fechas?: string | null
+          filas?: number
+          filas_sesion_realizada?: number
+          generado?: string
+          grupo_etario?: string
+          mes?: string
+          mes_num?: number
+          presente?: number
+          sede?: string
+          semana?: string
+          sin_registro?: number
+          tasa_asistencia?: number | null
+        }
+        Relationships: []
+      }
+      asistencia_cargas: {
+        Row: {
+          filas_agregadas: number
+          filas_master: number
+          generado: string
+          id: number
+          recibido_en: string
+        }
+        Insert: {
+          filas_agregadas?: number
+          filas_master?: number
+          generado: string
+          id?: never
+          recibido_en?: string
+        }
+        Update: {
+          filas_agregadas?: number
+          filas_master?: number
+          generado?: string
+          id?: never
+          recibido_en?: string
+        }
+        Relationships: []
+      }
       attachments: {
         Row: {
           created_at: string
@@ -548,8 +629,22 @@ export type Database = {
       is_private_space: { Args: { s: string }; Returns: boolean }
       is_space_member: { Args: { s: string }; Returns: boolean }
       is_task_assignee: { Args: { t: string }; Returns: boolean }
+      notify_people: {
+        Args: {
+          p_kind: string
+          p_task_id: string
+          p_title: string
+          p_user_ids: string[]
+        }
+        Returns: undefined
+      }
       seed_auth_user: {
-        Args: { p_email: string; p_id: string; p_name: string }
+        Args: {
+          p_email: string
+          p_id: string
+          p_name: string
+          p_password: string
+        }
         Returns: undefined
       }
       set_task_assignees: {
